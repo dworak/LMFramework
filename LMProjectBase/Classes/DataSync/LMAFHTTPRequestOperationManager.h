@@ -8,6 +8,7 @@
 #import "AFNetworking.h"
 #import <UIKit/UIKit.h>
 
+
 typedef void (^succedBlock)(AFHTTPRequestOperation *operation, id responseObject);
 typedef void (^failureBlock)(AFHTTPRequestOperation *operation, NSError *error);
 
