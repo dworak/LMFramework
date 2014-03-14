@@ -522,25 +522,8 @@ static int EscapeMapCompare(const void *ucharVoid, const void *mapVoid) {
 
 - (NSString*)stringByEncodingAsBase64_No_Arc
 {
-    size_t buffer_size = (([self length] * 3 + 2) / 2);
-    
-    char* buffer = (char*)malloc(buffer_size);
-    
-    char const* bytes = [self cStringUsingEncoding:NSUTF8StringEncoding];
-    
-    NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
-    int len = b64_ntop((u_char const*)bytes, [self length], buffer, buffer_size);
-    [pool drain];
-    
-    if (len == -1)
-    {
-        free(buffer);
-        return nil;
-    }
-    else
-    {
-        return [[[NSString alloc] initWithBytesNoCopy:buffer length:len encoding:NSUTF8StringEncoding freeWhenDone:YES] autorelease];
-    }
+    NSData *stringData = [self dataUsingEncoding:NSUTF8StringEncoding];
+    return [stringData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 }
 
 @end
