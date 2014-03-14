@@ -1,0 +1,27 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#define APP_KEY @"HcZ2K3z6LMQ2a3N8q95417X56ACm3Q18b4aqgEIK"
+#define APP_ID @"HT1sV7Uers3Bj7TRtAcbq2cWysXlcoDJfYqPxrmy"
+
+#ifndef APP_KEY
+#error "You should define APP_KEY in this file."
+#endif
+
+#ifndef APP_ID
+#error "You should define APP_ID" in this file."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
