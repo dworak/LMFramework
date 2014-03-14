@@ -30,6 +30,9 @@ typedef void (^BackgroundEmailCompletionBlock) (BackgroundEmail *message, NSErro
 - (void)setCompletionBlock:(BackgroundEmailCompletionBlock)completionBlock;
 - (void)addAttachment:(NSString*)name withData:(NSData*)data;
 
+- (void)messageSent:(SKPSMTPMessage *)message;
+- (void)messageFailed:(SKPSMTPMessage *)message error:(NSError *)error;
+
 @end
 
 @interface BackgroundEmailCrashlog : BackgroundEmail

@@ -65,8 +65,6 @@
 		FB54A9D818D308D800CBCA5A /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */ = {isa = PBXBuildFile; fileRef = FB54A9D618D308D800CBCA5A /* NSManagedObjectContext+FetchedObjectFromURI.m */; };
 		FB54A9DC18D30B2F00CBCA5A /* KeychainItemWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = FB54A9DA18D30B2F00CBCA5A /* KeychainItemWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB54A9DD18D30B2F00CBCA5A /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = FB54A9DB18D30B2F00CBCA5A /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		FB54A9E218D30EB000CBCA5A /* LMDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = FB54A9E018D30EB000CBCA5A /* LMDeviceInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FB54A9E318D30EB000CBCA5A /* LMDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FB54A9E118D30EB000CBCA5A /* LMDeviceInfo.m */; };
 		FB54AA1918D3118100CBCA5A /* NSArray+TT.h in Headers */ = {isa = PBXBuildFile; fileRef = FB54A9E518D3118100CBCA5A /* NSArray+TT.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB54AA1A18D3118100CBCA5A /* NSArray+TT.m in Sources */ = {isa = PBXBuildFile; fileRef = FB54A9E618D3118100CBCA5A /* NSArray+TT.m */; };
 		FB54AA1B18D3118100CBCA5A /* NSDate+TT.h in Headers */ = {isa = PBXBuildFile; fileRef = FB54A9E718D3118100CBCA5A /* NSDate+TT.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -125,7 +123,6 @@
 		FB5F609418BDE6C800F1C0B1 /* HSK_CFUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = FB90589418BCA7C1002D791A /* HSK_CFUtilities.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FB5F609518BDE6CA00F1C0B1 /* NSData+Base64Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = FB90589618BCA7C1002D791A /* NSData+Base64Additions.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FB5F609618BDE6DD00F1C0B1 /* NSStream+SKPSMTPExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = FB90589A18BCA7C1002D791A /* NSStream+SKPSMTPExtensions.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		FB5F60A218BDEA8500F1C0B1 /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FB90589F18BCA7C1002D791A /* SKPSMTPMessage.m */; };
 		FB5F60A318BDEA8F00F1C0B1 /* SKPSMTPMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = FB90589E18BCA7C1002D791A /* SKPSMTPMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB5F60A418BDEABD00F1C0B1 /* BackgroundEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = FB90589118BCA7C1002D791A /* BackgroundEmail.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FB5F60A518BDEABD00F1C0B1 /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FB90589318BCA7C1002D791A /* Base64Transcoder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -226,8 +223,6 @@
 		FB54A9D618D308D800CBCA5A /* NSManagedObjectContext+FetchedObjectFromURI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSManagedObjectContext+FetchedObjectFromURI.m"; path = "Categories/NSManagedObjectContext+FetchedObjectFromURI.m"; sourceTree = "<group>"; };
 		FB54A9DA18D30B2F00CBCA5A /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeychainItemWrapper.h; path = Keychain/KeychainItemWrapper.h; sourceTree = "<group>"; };
 		FB54A9DB18D30B2F00CBCA5A /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeychainItemWrapper.m; path = Keychain/KeychainItemWrapper.m; sourceTree = "<group>"; };
-		FB54A9E018D30EB000CBCA5A /* LMDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMDeviceInfo.h; path = Classes/LMDeviceInfo.h; sourceTree = "<group>"; };
-		FB54A9E118D30EB000CBCA5A /* LMDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMDeviceInfo.m; path = Classes/LMDeviceInfo.m; sourceTree = "<group>"; };
 		FB54A9E518D3118100CBCA5A /* NSArray+TT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+TT.h"; sourceTree = "<group>"; };
 		FB54A9E618D3118100CBCA5A /* NSArray+TT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+TT.m"; sourceTree = "<group>"; };
 		FB54A9E718D3118100CBCA5A /* NSDate+TT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TT.h"; sourceTree = "<group>"; };
@@ -575,8 +570,6 @@
 				FB54A99A18D2E94400CBCA5A /* TTChildViewControllerProtocol.h */,
 				FB54A99B18D2E94400CBCA5A /* TTHostViewController.h */,
 				FB54A99C18D2E94400CBCA5A /* TTHostViewController.m */,
-				FB54A9E018D30EB000CBCA5A /* LMDeviceInfo.h */,
-				FB54A9E118D30EB000CBCA5A /* LMDeviceInfo.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -653,7 +646,6 @@
 				FB54AA4018D3118100CBCA5A /* TTSingleton+Contruction.h in Headers */,
 				FB54AA1F18D3118100CBCA5A /* NSString+TT.h in Headers */,
 				FB54AA4518D3118100CBCA5A /* TTSystemInfo.h in Headers */,
-				FB54A9E218D30EB000CBCA5A /* LMDeviceInfo.h in Headers */,
 				FB54AA2218D3118100CBCA5A /* TTAbstractCoreDataManager+Internals.h in Headers */,
 				FB54AA2D18D3118100CBCA5A /* TTDelegateProxy.h in Headers */,
 				FB54AA1B18D3118100CBCA5A /* NSDate+TT.h in Headers */,
@@ -813,7 +805,6 @@
 				FB54A99E18D2E94400CBCA5A /* LMViewControllerBase.m in Sources */,
 				FB54A9DD18D30B2F00CBCA5A /* KeychainItemWrapper.m in Sources */,
 				FB54AA3D18D3118100CBCA5A /* TTOptionalProtocolHelper.m in Sources */,
-				FB54A9E318D30EB000CBCA5A /* LMDeviceInfo.m in Sources */,
 				FB54AA1C18D3118100CBCA5A /* NSDate+TT.m in Sources */,
 				FB5F60A618BDEABD00F1C0B1 /* HSK_CFUtilities.m in Sources */,
 				FB54AA4418D3118100CBCA5A /* TTStringParameters.m in Sources */,
@@ -846,7 +837,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB9058A118BCA7C1002D791A /* Base64Transcoder.m in Sources */,
-				FB5F60A218BDEA8500F1C0B1 /* SKPSMTPMessage.m in Sources */,
 				FB9058A518BCA7C1002D791A /* NSStream+SKPSMTPExtensions.m in Sources */,
 				FB9058A318BCA7C1002D791A /* NSData+Base64Additions.m in Sources */,
 				FB9058A018BCA7C1002D791A /* BackgroundEmail.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "TTHostViewController.h"
-#import "LMDeviceInfo.h"
+#import "TTSystemInfo.h"
 @interface TTHostViewController ()
 
 @end
@@ -72,7 +72,14 @@
 
 + (UIViewController*)loadViewControllerWithClass:(Class)class andXibName:(NSString*)xibName
 {
-    xibName = [LMDeviceInfo getFullXibNameForCurrentDevice:xibName];
+    if([TTSystemInfo isScreenBig])
+    {
+        xibName = [NSString stringWithFormat:@"%@_iPad",xibName];
+    }
+    else
+    {
+        xibName = [NSString stringWithFormat:@"%@_iPhone", xibName];
+    }
     
     UIViewController* result = [[class alloc] initWithNibName:xibName bundle:[NSBundle mainBundle]];
     

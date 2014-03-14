@@ -225,12 +225,13 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
     {
         [self.connectTimer invalidate];
         self.connectTimer = nil;
-        
-        [delegate messageFailed:self 
+        if(delegate){
+            [delegate messageFailed:self
                           error:[NSError errorWithDomain:@"SKPSMTPMessageError" 
                                                     code:kSKPSMTPErrorConnectionFailed 
                                                 userInfo:[NSDictionary dictionaryWithObjectsAndKeys:NSLocalizedString(@"Unable to connect to the server.", @"server connection fail error description"),NSLocalizedDescriptionKey,
                                                           NSLocalizedString(@"Try sending your message again later.", @"server generic error recovery"),NSLocalizedRecoverySuggestionErrorKey,nil]]];
+        }
         
         return NO;
     }
@@ -734,13 +735,19 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
     {
         [self cleanUpStreams];
         
-        [delegate messageSent:self];
+        if(delegate)
+        {
+            [delegate messageSent:self];
+        }
     }
     else if (encounteredError)
     {
         [self cleanUpStreams];
         
-        [delegate messageFailed:self error:error];
+        if(delegate)
+        {
+            [delegate messageFailed:self error:error];
+        }
     }
 }
 

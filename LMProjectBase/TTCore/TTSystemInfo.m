@@ -4,7 +4,7 @@
 //
 //  Created by Andrzej Auchimowicz on 08/11/2012.
 //  Copyright (c) 2012 Transition Technologies. All rights reserved.
-//
+//  Contributors: Lukasz Dworakowski
 
 #import "TTSystemInfo.h"
 
@@ -67,5 +67,4 @@
     
     return 20;
 }
-
 @end
