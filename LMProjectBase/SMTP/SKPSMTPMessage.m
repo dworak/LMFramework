@@ -245,7 +245,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
             uint8_t buf[1024];
             memset(buf, 0, sizeof(uint8_t) * 1024);
             unsigned int len = 0;
-            len = [(NSInputStream *)stream read:buf maxLength:1024];
+            len = (unsigned int)[(NSInputStream *)stream read:buf maxLength:1024];
             if(len) 
             {
                 NSString *tmpStr = [[NSString alloc] initWithBytes:buf length:len encoding:NSUTF8StringEncoding];
@@ -277,6 +277,8 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
             
             break;
         }
+        default:
+        {}
     }
 }
             
@@ -784,7 +786,7 @@ NSString *kSKPSMTPPartContentTransferEncodingKey = @"kSKPSMTPPartContentTransfer
     NSData *messageData = [message dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     [message release];
     
-    NSLog(@"C: %s %u", [messageData bytes], [messageData length]);
+    NSLog(@"C: %s %lu", [messageData bytes], (unsigned long)[messageData length]);
     if (CFWriteStreamWriteFully((CFWriteStreamRef)outputStream, (const uint8_t *)[messageData bytes], [messageData length]) < 0)
     {
         return NO;

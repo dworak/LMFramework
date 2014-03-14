@@ -182,7 +182,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		66CEFD114A6E4420AF52BD7C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		FB4F5D2A18D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		FB4F5D2B18D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		FB4F5D2C18D1AA4F00C4A420 /* LMAFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -465,7 +464,6 @@
 				FB90583418BC9A4A002D791A /* LMProjectBaseTests */,
 				FB90581D18BC9A4A002D791A /* Frameworks */,
 				FB90581C18BC9A4A002D791A /* Products */,
-				66CEFD114A6E4420AF52BD7C /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -684,12 +682,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB90583E18BC9A4A002D791A /* Build configuration list for PBXNativeTarget "LM" */;
 			buildPhases = (
-				6021B9CBB5AC4528A6E0268C /* Check Pods Manifest.lock */,
 				FB90581718BC9A4A002D791A /* Sources */,
 				FB90581818BC9A4A002D791A /* Frameworks */,
 				FB90581918BC9A4A002D791A /* CopyFiles */,
 				FB90584418BC9BDB002D791A /* Headers */,
-				AC5E76E127CD47C98B4FDDD6 /* Copy Pods Resources */,
 				FB9058BE18BCDC8F002D791A /* ShellScript */,
 			);
 			buildRules = (
@@ -760,36 +756,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6021B9CBB5AC4528A6E0268C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		AC5E76E127CD47C98B4FDDD6 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		FB9058BE18BCDC8F002D791A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -982,7 +948,6 @@
 		};
 		FB90583F18BC9A4A002D791A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66CEFD114A6E4420AF52BD7C /* Pods.xcconfig */;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = NO;
 				DSTROOT = /tmp/LMProjectBase.dst;
@@ -1006,7 +971,6 @@
 		};
 		FB90584018BC9A4A002D791A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 66CEFD114A6E4420AF52BD7C /* Pods.xcconfig */;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = NO;
