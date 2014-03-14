@@ -86,7 +86,7 @@
 		FB54AA2918D3118100CBCA5A /* TTClock.m in Sources */ = {isa = PBXBuildFile; fileRef = FB54A9F518D3118100CBCA5A /* TTClock.m */; };
 		FB54AA2A18D3118100CBCA5A /* TTConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FB54A9F618D3118100CBCA5A /* TTConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB54AA2B18D3118100CBCA5A /* TTConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FB54A9F718D3118100CBCA5A /* TTConfiguration.m */; };
-		FB54AA2C18D3118100CBCA5A /* TTCore-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = FB54A9F818D3118100CBCA5A /* TTCore-Prefix.pch */; settings = {ATTRIBUTES = (Public, ); }; };
+		FB54AA2C18D3118100CBCA5A /* TTCore-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = FB54A9F818D3118100CBCA5A /* TTCore-Prefix.pch */; settings = {ATTRIBUTES = (Private, ); }; };
 		FB54AA2D18D3118100CBCA5A /* TTDelegateProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = FB54A9F918D3118100CBCA5A /* TTDelegateProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB54AA2E18D3118100CBCA5A /* TTDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB54A9FA18D3118100CBCA5A /* TTDelegateProxy.m */; };
 		FB54AA2F18D3118100CBCA5A /* TTFilesystemManager+Internals.h in Headers */ = {isa = PBXBuildFile; fileRef = FB54A9FB18D3118100CBCA5A /* TTFilesystemManager+Internals.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -660,6 +660,34 @@
 				FB54A9BF18D2E96700CBCA5A /* AFURLSessionManager.h in Headers */,
 				FB54A9B818D2E96700CBCA5A /* AFNetworkActivityIndicatorManager.h in Headers */,
 				FB4F5D4518D1AA4F00C4A420 /* LMProjectBaseFramework-Prefix.pch in Headers */,
+				FB54AA3818D3118100CBCA5A /* TTMath.h in Headers */,
+				FB54AA4918D3118100CBCA5A /* TTTypes.h in Headers */,
+				FB54AA2A18D3118100CBCA5A /* TTConfiguration.h in Headers */,
+				FB54AA3E18D3118100CBCA5A /* TTPropertyTransferer.h in Headers */,
+				FB54AA3518D3118100CBCA5A /* TTKeyValueParser.h in Headers */,
+				FB54AA3718D3118100CBCA5A /* TTMacros.h in Headers */,
+				FB54AA2F18D3118100CBCA5A /* TTFilesystemManager+Internals.h in Headers */,
+				FB54AA1918D3118100CBCA5A /* NSArray+TT.h in Headers */,
+				FB54AA3318D3118100CBCA5A /* TTInteroperability.h in Headers */,
+				FB54AA4118D3118100CBCA5A /* TTSingleton.h in Headers */,
+				FB54AA2618D3118100CBCA5A /* TTCGEx.h in Headers */,
+				FB54AA2818D3118100CBCA5A /* TTClock.h in Headers */,
+				FB54AA4318D3118100CBCA5A /* TTStringParameters.h in Headers */,
+				FB54AA3C18D3118100CBCA5A /* TTOptionalProtocolHelper.h in Headers */,
+				FB54AA1D18D3118100CBCA5A /* NSSet+TT.h in Headers */,
+				FB54AA2418D3118100CBCA5A /* TTAbstractCoreDataManager.h in Headers */,
+				FB54AA4718D3118100CBCA5A /* TTTimer.h in Headers */,
+				FB54AA3A18D3118100CBCA5A /* TTObjectPoser.h in Headers */,
+				FB54AA4B18D3118100CBCA5A /* TTUnits.h in Headers */,
+				FB54AA4018D3118100CBCA5A /* TTSingleton+Contruction.h in Headers */,
+				FB54AA1F18D3118100CBCA5A /* NSString+TT.h in Headers */,
+				FB54AA4518D3118100CBCA5A /* TTSystemInfo.h in Headers */,
+				FB54A9E218D30EB000CBCA5A /* LMDeviceInfo.h in Headers */,
+				FB54AA2218D3118100CBCA5A /* TTAbstractCoreDataManager+Internals.h in Headers */,
+				FB54AA2D18D3118100CBCA5A /* TTDelegateProxy.h in Headers */,
+				FB54AA1B18D3118100CBCA5A /* NSDate+TT.h in Headers */,
+				FB54AA3118D3118100CBCA5A /* TTFilesystemManager.h in Headers */,
+				FB54AA2C18D3118100CBCA5A /* TTCore-Prefix.pch in Headers */,
 				FB4F5D3B18D1AA4F00C4A420 /* LMAFHTTPSessionManager.h in Headers */,
 				FB4F5D4318D1AA4F00C4A420 /* LMProjectBaseDelegate.h in Headers */,
 				FB4F5D3918D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.h in Headers */,
