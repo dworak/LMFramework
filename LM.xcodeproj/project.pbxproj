@@ -119,6 +119,8 @@
 		FB54AA4A18D3118100CBCA5A /* TTTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = FB54AA1618D3118100CBCA5A /* TTTypes.m */; };
 		FB54AA4B18D3118100CBCA5A /* TTUnits.h in Headers */ = {isa = PBXBuildFile; fileRef = FB54AA1718D3118100CBCA5A /* TTUnits.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB54AA4C18D3118100CBCA5A /* TTUnits.m in Sources */ = {isa = PBXBuildFile; fileRef = FB54AA1818D3118100CBCA5A /* TTUnits.m */; };
+		FB54AA4E18D314C100CBCA5A /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB54AA4D18D314C100CBCA5A /* settings.plist */; };
+		FB54AA5618D321D200CBCA5A /* NSString+TT_No_Arc.m in Sources */ = {isa = PBXBuildFile; fileRef = FB54AA5518D321D200CBCA5A /* NSString+TT_No_Arc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FB5F609218BDE6B300F1C0B1 /* BackgroundEmail.h in Headers */ = {isa = PBXBuildFile; fileRef = FB90589018BCA7C1002D791A /* BackgroundEmail.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB5F609318BDE6C500F1C0B1 /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = FB90589218BCA7C1002D791A /* Base64Transcoder.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FB5F609418BDE6C800F1C0B1 /* HSK_CFUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = FB90589418BCA7C1002D791A /* HSK_CFUtilities.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -235,7 +237,6 @@
 		FB54A9EA18D3118100CBCA5A /* NSSet+TT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+TT.m"; sourceTree = "<group>"; };
 		FB54A9EB18D3118100CBCA5A /* NSString+TT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TT.h"; sourceTree = "<group>"; };
 		FB54A9EC18D3118100CBCA5A /* NSString+TT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TT.m"; sourceTree = "<group>"; };
-		FB54A9ED18D3118100CBCA5A /* NSString+TT_No_Arc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TT_No_Arc.m"; sourceTree = "<group>"; };
 		FB54A9EE18D3118100CBCA5A /* TTAbstractCoreDataManager+Internals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TTAbstractCoreDataManager+Internals.h"; sourceTree = "<group>"; };
 		FB54A9EF18D3118100CBCA5A /* TTAbstractCoreDataManager+Internals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TTAbstractCoreDataManager+Internals.m"; sourceTree = "<group>"; };
 		FB54A9F018D3118100CBCA5A /* TTAbstractCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTAbstractCoreDataManager.h; sourceTree = "<group>"; };
@@ -279,6 +280,8 @@
 		FB54AA1618D3118100CBCA5A /* TTTypes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTypes.m; sourceTree = "<group>"; };
 		FB54AA1718D3118100CBCA5A /* TTUnits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTUnits.h; sourceTree = "<group>"; };
 		FB54AA1818D3118100CBCA5A /* TTUnits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUnits.m; sourceTree = "<group>"; };
+		FB54AA4D18D314C100CBCA5A /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
+		FB54AA5518D321D200CBCA5A /* NSString+TT_No_Arc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TT_No_Arc.m"; sourceTree = "<group>"; };
 		FB7FFDDE18BE508900CBECD5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FB7FFDDF18BE508900CBECD5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FB90581B18BC9A4A002D791A /* libLM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLM.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -391,6 +394,7 @@
 		FB54A9E418D3118100CBCA5A /* TTCore */ = {
 			isa = PBXGroup;
 			children = (
+				FB54AA5518D321D200CBCA5A /* NSString+TT_No_Arc.m */,
 				FB54A9E518D3118100CBCA5A /* NSArray+TT.h */,
 				FB54A9E618D3118100CBCA5A /* NSArray+TT.m */,
 				FB54A9E718D3118100CBCA5A /* NSDate+TT.h */,
@@ -399,7 +403,6 @@
 				FB54A9EA18D3118100CBCA5A /* NSSet+TT.m */,
 				FB54A9EB18D3118100CBCA5A /* NSString+TT.h */,
 				FB54A9EC18D3118100CBCA5A /* NSString+TT.m */,
-				FB54A9ED18D3118100CBCA5A /* NSString+TT_No_Arc.m */,
 				FB54A9EE18D3118100CBCA5A /* TTAbstractCoreDataManager+Internals.h */,
 				FB54A9EF18D3118100CBCA5A /* TTAbstractCoreDataManager+Internals.m */,
 				FB54A9F018D3118100CBCA5A /* TTAbstractCoreDataManager.h */,
@@ -460,6 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				FB9058AB18BCA882002D791A /* Podfile */,
+				FB54AA4D18D314C100CBCA5A /* settings.plist */,
 				FB90582018BC9A4A002D791A /* LMProjectBase */,
 				FB90583418BC9A4A002D791A /* LMProjectBaseTests */,
 				FB90581D18BC9A4A002D791A /* Frameworks */,
@@ -749,6 +753,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB9058AC18BCA882002D791A /* Podfile in Resources */,
+				FB54AA4E18D314C100CBCA5A /* settings.plist in Resources */,
 				FB90583918BC9A4A002D791A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -801,6 +806,7 @@
 				FB4F5D4718D1AA4F00C4A420 /* LMUserManager.m in Sources */,
 				FB54AA3918D3118100CBCA5A /* TTMath.m in Sources */,
 				FB54AA2918D3118100CBCA5A /* TTClock.m in Sources */,
+				FB54AA5618D321D200CBCA5A /* NSString+TT_No_Arc.m in Sources */,
 				FB5F60A418BDEABD00F1C0B1 /* BackgroundEmail.m in Sources */,
 				FB54AA1E18D3118100CBCA5A /* NSSet+TT.m in Sources */,
 				FB54AA3B18D3118100CBCA5A /* TTObjectPoser.m in Sources */,
@@ -829,7 +835,6 @@
 				FB54AA2018D3118100CBCA5A /* NSString+TT.m in Sources */,
 				FB4F5D4018D1AA4F00C4A420 /* LMCoreDataManager.m in Sources */,
 				FB5F60A918BDEABD00F1C0B1 /* SKPSMTPMessage.m in Sources */,
-				FB54AA2118D3118100CBCA5A /* NSString+TT_No_Arc.m in Sources */,
 				FB54AA3218D3118100CBCA5A /* TTFilesystemManager.m in Sources */,
 				FB54AA3018D3118100CBCA5A /* TTFilesystemManager+Internals.m in Sources */,
 				FB7FFDE118BE508900CBECD5 /* Reachability.m in Sources */,
