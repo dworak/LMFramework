@@ -30,8 +30,16 @@ typedef void (^completionBlock)(NSURLResponse * response, NSData *data, NSError 
 
 - (AFHTTPRequestOperation*)GETHTTPRequestOperationForAllRecordsOfClass:(Class)className
                                                       updatedAfterDate:(NSDate *)updatedDate
-                                                           succedBlock:(succedBlock) theSucceedBlock
-                                                          failureBlock:(failureBlock) theFailureBlock;
+                                                           succedBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject)) theSucceedBlock
+                                                          failureBlock:(void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock;
+
+
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForRelationName: (NSString*) theRelationName
+                                                withOwnerGlobalId: (NSString*) theOwnerGlobalId
+                                                          inClass: (Class) ownerClass
+                                                    relationClass: (Class) relationClass
+                                                  withSuccedBlock: (succedBlock) thesuccedBlock
+                                                 withFailureBlock: (failureBlock) theFailureBlock;
 
 - (AFHTTPRequestOperation *)GETHTTPRequestOperationForServerMethod:(NSString *)requestString
                                                         parameters:(NSDictionary*)parameters

@@ -104,22 +104,50 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
                                                           failureBlock:(void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock
 {
     AFHTTPRequestOperation *operation = nil;
-    NSDictionary *paramters = nil;
+    NSMutableDictionary *paramters = nil;
     if (updatedDate) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.'999Z'"];
         [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
         
-        NSString *jsonString = [NSString
+        NSString *dateString = [NSString
                                 stringWithFormat:@"{\"updatedAt\":{\"$gte\":{\"__type\":\"Date\",\"iso\":\"%@\"}}}",
                                 [dateFormatter stringFromDate:updatedDate]];
         
-        paramters = [NSDictionary dictionaryWithObject:jsonString forKey:@"where"];
+        paramters = [NSMutableDictionary dictionary];
+        [paramters setObject:dateString forKey:@"where"];
     }
     
     operation = [self GETHTTPRequestOperationForClass:className parameters:paramters succedBlock:theSucceedBlock failureBlock:theFailureBlock];
     return operation;
 }
+
+
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForRelationName: (NSString*) theRelationName
+                                                withOwnerGlobalId: (NSString*) theOwnerGlobalId
+                                                          inClass: (Class) ownerClass
+                                                    relationClass: (Class) relationClass
+                                                  withSuccedBlock: (succedBlock) thesuccedBlock
+                                                 withFailureBlock: (failureBlock) theFailureBlock
+{
+    AFHTTPRequestOperation *operation;
+    
+    NSString* relatedToString  = [self preapreRelatedToStringRequestForClass:ownerClass ownerGlobalId:theOwnerGlobalId relationNameInTheAPI:theRelationName];
+    
+    NSDictionary *whereDictionary = [NSDictionary dictionaryWithObject:relatedToString forKey:@"where"];
+    operation=[self GETHTTPRequestOperationForServerMethod:[NSString stringWithFormat:@"classes/%@", NSStringFromClass(relationClass)] parameters:whereDictionary succeedBlock:thesuccedBlock failureBlock:theFailureBlock];
+    
+    return operation;
+}
+
+
+- (NSString*) preapreRelatedToStringRequestForClass: (Class) theOwnerOfTheRelation
+                                      ownerGlobalId: (NSString*) theOwnerGlobalId
+                               relationNameInTheAPI: (NSString*) theRelationName
+{
+    return [NSString stringWithFormat:@"{\"$relatedTo\":{\"object\":{\"__type\":\"Pointer\",\"className\":\"%@\",\"objectId\":\"%@\"},\"key\":\"%@\"}}", NSStringFromClass(theOwnerOfTheRelation),theOwnerGlobalId,theRelationName];
+}
+
 
 - (AFHTTPRequestOperation *)GETHTTPRequestOperationForServerMethod:(NSString *)requestString
                                                         parameters:(NSDictionary*)parameters
@@ -130,11 +158,11 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     return operation;
 }
 
-
 - (AFHTTPRequestOperation *)POSTHTTPRequestOperationForClass:(Class) className
                                                   parameters:(NSDictionary *) parameters
                                                  succedBlock:(succedBlock) theSuccedBlock
                                                 failureBlock:(failureBlock) theFailureBlock
+                                               returnRelations:(BOOL) includeRelations
 {
     AFHTTPRequestOperation *operation;
     //TODO: walidacja parametrow
