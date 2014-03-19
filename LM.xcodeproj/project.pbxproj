@@ -148,6 +148,8 @@
 		FB9058B618BCABC0002D791A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB9058B518BCABC0002D791A /* CoreData.framework */; };
 		FBD6B2BC18BFAE2200E8C664 /* UIView+KeyboardAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = FBD6B2BA18BFAE2200E8C664 /* UIView+KeyboardAnimation.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		FBD6B2BD18BFAE2200E8C664 /* UIView+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD6B2BB18BFAE2200E8C664 /* UIView+KeyboardAnimation.m */; };
+		FBDEB45E18D98C91000373C7 /* NSDictionary+URLEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = FBDEB45C18D98C91000373C7 /* NSDictionary+URLEncoding.h */; };
+		FBDEB45F18D98C91000373C7 /* NSDictionary+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDEB45D18D98C91000373C7 /* NSDictionary+URLEncoding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -302,6 +304,8 @@
 		FB9058B518BCABC0002D791A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FBD6B2BA18BFAE2200E8C664 /* UIView+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+KeyboardAnimation.h"; path = "Categories/UIView+KeyboardAnimation.h"; sourceTree = "<group>"; };
 		FBD6B2BB18BFAE2200E8C664 /* UIView+KeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+KeyboardAnimation.m"; path = "Categories/UIView+KeyboardAnimation.m"; sourceTree = "<group>"; };
+		FBDEB45C18D98C91000373C7 /* NSDictionary+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+URLEncoding.h"; path = "Categories/NSDictionary+URLEncoding.h"; sourceTree = "<group>"; };
+		FBDEB45D18D98C91000373C7 /* NSDictionary+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+URLEncoding.m"; path = "Categories/NSDictionary+URLEncoding.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -558,6 +562,8 @@
 				FBD6B2BB18BFAE2200E8C664 /* UIView+KeyboardAnimation.m */,
 				FB54A9D518D308D800CBCA5A /* NSManagedObjectContext+FetchedObjectFromURI.h */,
 				FB54A9D618D308D800CBCA5A /* NSManagedObjectContext+FetchedObjectFromURI.m */,
+				FBDEB45C18D98C91000373C7 /* NSDictionary+URLEncoding.h */,
+				FBDEB45D18D98C91000373C7 /* NSDictionary+URLEncoding.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -684,6 +690,7 @@
 				FB4F5D3D18D1AA4F00C4A420 /* LMAppDelegate.h in Headers */,
 				FB5F609218BDE6B300F1C0B1 /* BackgroundEmail.h in Headers */,
 				FB54A9D718D308D800CBCA5A /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */,
+				FBDEB45E18D98C91000373C7 /* NSDictionary+URLEncoding.h in Headers */,
 				FB54A9DC18D30B2F00CBCA5A /* KeychainItemWrapper.h in Headers */,
 				FB5F60A318BDEA8F00F1C0B1 /* SKPSMTPMessage.h in Headers */,
 				FB54A9C618D2E96700CBCA5A /* UIWebView+AFNetworking.h in Headers */,
@@ -856,6 +863,7 @@
 				FB54AA3018D3118100CBCA5A /* TTFilesystemManager+Internals.m in Sources */,
 				FB7FFDE118BE508900CBECD5 /* Reachability.m in Sources */,
 				FB54A9D818D308D800CBCA5A /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
+				FBDEB45F18D98C91000373C7 /* NSDictionary+URLEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

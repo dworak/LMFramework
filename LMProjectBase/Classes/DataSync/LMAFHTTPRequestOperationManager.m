@@ -7,6 +7,7 @@
 //
 
 #import "LMAFHTTPRequestOperationManager.h"
+#import "NSDictionary+URLEncoding.h"
 
 static NSString * const kAPIBaseURLString = @"kAPIBaseURLString";
 static NSString * const kAPIApplicationId = @"kAPIApplicationId";
@@ -140,6 +141,129 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     return operation;
 }
 
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForRelationName: (NSString*) theRelationName
+                                                withOwnerGlobalId: (NSString*) theOwnerGlobalId
+                                                          inClass: (Class) ownerClass
+                                                     forUserClass: (Class) userClass
+                                                  withSuccedBlock: (succedBlock) thesuccedBlock
+                                                 withFailureBlock: (failureBlock) theFailureBlock
+{
+    NSParameterAssert([NSStringFromClass(userClass) isEqualToString:@"User"]);
+    AFHTTPRequestOperation *operation;
+    
+    NSString* relatedToString  = [self preapreRelatedToStringRequestForClass:ownerClass ownerGlobalId:theOwnerGlobalId relationNameInTheAPI:theRelationName];
+    
+    NSDictionary *whereDictionary = [NSDictionary dictionaryWithObject:relatedToString forKey:@"where"];
+    
+    
+    operation=[self GETHTTPRequestOperationForServerMethod:@"users" parameters:whereDictionary succeedBlock:thesuccedBlock failureBlock:theFailureBlock];
+    
+    return operation;
+}
+
+
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForClass:(Class)className
+                                           orderDescending:(BOOL) descendingOrder
+                                              withRowLimit:(NSUInteger) theRowLimit
+                                          includeRelations:(NSArray*) theRelationNames
+                                           withSuccedBlock:(succedBlock) theSuccedBlock
+                                          withFailureBlock:(failureBlock) theFailureBlock
+{
+    AFHTTPRequestOperation *operation;
+    NSMutableDictionary *queryDictionary = [NSMutableDictionary dictionary];
+    
+    if(descendingOrder)
+    {
+        [queryDictionary setObject:@"-createdAt" forKey:@"order"];
+    }
+    
+    if(theRowLimit!=-1)
+    {
+        [queryDictionary setObject:[NSNumber numberWithInt:theRowLimit] forKey:@"limit"];
+    }
+    
+    if(theRelationNames.count>0)
+    {
+        [queryDictionary setObject:theRelationNames forKey:@"include"];
+    }
+    
+    
+//    if(descendingOrder)
+//    {
+//        NSString *descendingOrder = @"{\"order\"=\"-createdAt\"}";
+//        [finalQueryString stringByAppendingString:descendingOrder];
+//    }
+//    
+//    if(theRowLimit!=-1)
+//    {
+//        NSString *rowLimit = [NSString stringWithFormat:@"{\"limit\"=%d}", theRowLimit];
+//        if(descendingOrder){
+//            [finalQueryString stringByAppendingString:@","];
+//        }
+//        [finalQueryString stringByAppendingString:rowLimit];
+//    }
+//    
+//    if(theRelationNames.count>0)
+//    {
+//        NSString *relationFinalQuery = @"{\"include=\"";
+//
+//        if(descendingOrder || theRowLimit!=-1)
+//        {
+//            [finalQueryString stringByAppendingString:@","];
+//            
+//            int i = 0;
+//            
+//            for(NSString *relation in theRelationNames)
+//            {
+//                i+=1;
+//                
+//                [relationFinalQuery stringByAppendingString:relation];
+//                
+//                if(i!=theRelationNames.count)
+//                {
+//                    [relationFinalQuery stringByAppendingString:@","];
+//                }
+//            }
+//            
+//            [relationFinalQuery stringByAppendingString:@"}"];
+//        }
+//    }
+//    
+//    [finalQueryString stringByAppendingString:@"}"];
+    
+//     NSDictionary *jsonDictionary = [[NSDictionary alloc] initWithObjectsAndKeys:
+//     @"Sean Plott", @"playerName",
+//     [NSNumber numberWithBool:NO], @"cheatMode", nil];
+//     
+//     NSError *error = nil;
+//     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:0 error:&error];
+//     
+//     if (!jsonData) {
+//     NSLog(@"NSJSONSerialization failed %@", error);
+//     }
+//     
+//     NSString *json = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//     
+//     NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:
+//     json, @"where", nil];
+    
+    
+// [{"__type":"Pointer","className":"TargetClassNameHere","objectId":"actualObjectIdHere"},{"__type":"Pointer","className":"TargetClassNameHere","objectId":"actualObjectIdHere"}] jako Array
+//I wtedy:
+//curl -X GET \
+-H "X-Parse-Application-Id: HT1sV7Uers3Bj7TRtAcbq2cWysXlcoDJfYqPxrmy" \
+-H "X-Parse-REST-API-Key: HcZ2K3z6LMQ2a3N8q95417X56ACm3Q18b4aqgEIK" \
+-G \
+--data-urlencode 'order=-createdAt' \
+--data-urlencode 'limit=10' \
+--data-urlencode 'include=post' \
+https://api.parse.com/1/classes/Comment
+
+//@"{\"updatedAt\":{\"$gte\":{\"__type\":\"Date\",\"iso\":\"%@\"}}}",
+    
+    operation = [self GETHTTPRequestOperationForClass:className parameters:queryDictionary succedBlock:theSuccedBlock failureBlock:theFailureBlock];
+    return operation;
+}
 
 - (NSString*) preapreRelatedToStringRequestForClass: (Class) theOwnerOfTheRelation
                                       ownerGlobalId: (NSString*) theOwnerGlobalId

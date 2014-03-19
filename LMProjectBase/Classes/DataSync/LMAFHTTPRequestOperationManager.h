@@ -41,6 +41,20 @@ typedef void (^completionBlock)(NSURLResponse * response, NSData *data, NSError 
                                                   withSuccedBlock: (succedBlock) thesuccedBlock
                                                  withFailureBlock: (failureBlock) theFailureBlock;
 
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForClass:(Class)className
+                                           orderDescending:(BOOL) descendingOrder
+                                              withRowLimit:(NSUInteger) theRowLimit
+                                          includeRelations:(NSArray*) theRelationNames
+                                           withSuccedBlock:(succedBlock) theSuccedBlock
+                                          withFailureBlock:(failureBlock) theFailureBlock;
+
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForRelationName: (NSString*) theRelationName
+                                                withOwnerGlobalId: (NSString*) theOwnerGlobalId
+                                                          inClass: (Class) ownerClass
+                                                     forUserClass: (Class) userClass
+                                                  withSuccedBlock: (succedBlock) thesuccedBlock
+                                                 withFailureBlock: (failureBlock) theFailureBlock;
+
 - (AFHTTPRequestOperation *)GETHTTPRequestOperationForServerMethod:(NSString *)requestString
                                                         parameters:(NSDictionary*)parameters
                                                       succeedBlock:(succedBlock) theSucceedBlock
