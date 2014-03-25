@@ -63,6 +63,10 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     return self;
 }
 
+#pragma mark
+#pragma mark changind type of requests
+
+
 - (void) switchRequestSerializerForJSON{
     if(self.requestHeaders){
         self.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -89,20 +93,24 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     }
 }
 
-- (AFHTTPRequestOperation *)GETHTTPRequestOperationForClass:(Class)className
-                                                 parameters:(NSDictionary *)parameters
-                                                succedBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject)) theSucceedBlock
-                                               failureBlock:(void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock
+
+#pragma mark
+#pragma mark return AFHTTPRequestOperation
+
+- (AFHTTPRequestOperation *)GETHTTPRequestOperationForClass: (Class)className
+                                                 parameters: (NSDictionary *)parameters
+                                                succedBlock: (void(^)(AFHTTPRequestOperation *operation, id responseObject)) theSucceedBlock
+                                               failureBlock: (void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock
 {
     AFHTTPRequestOperation *operation = nil;
     operation = [self GET:[NSString stringWithFormat:@"classes/%@", NSStringFromClass(className)] parameters:parameters success:theSucceedBlock failure:theFailureBlock];
     return operation;
 }
 
-- (AFHTTPRequestOperation*)GETHTTPRequestOperationForAllRecordsOfClass:(Class)className
-                                                      updatedAfterDate:(NSDate *)updatedDate
-                                                           succedBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject)) theSucceedBlock
-                                                          failureBlock:(void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForAllRecordsOfClass: (Class)className
+                                                      updatedAfterDate: (NSDate *)updatedDate
+                                                           succedBlock: (void(^)(AFHTTPRequestOperation *operation, id responseObject)) theSucceedBlock
+                                                          failureBlock: (void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock
 {
     AFHTTPRequestOperation *operation = nil;
     NSMutableDictionary *paramters = nil;
@@ -162,12 +170,12 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
 }
 
 
-- (AFHTTPRequestOperation*)GETHTTPRequestOperationForClass:(Class)className
-                                           orderDescending:(BOOL) descendingOrder
-                                              withRowLimit:(NSUInteger) theRowLimit
-                                          includeRelations:(NSArray*) theRelationNames
-                                           withSuccedBlock:(succedBlock) theSuccedBlock
-                                          withFailureBlock:(failureBlock) theFailureBlock
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForClass: (Class)className
+                                           orderDescending: (BOOL) descendingOrder
+                                              withRowLimit: (NSUInteger) theRowLimit
+                                          includeRelations: (NSArray*) theRelationNames
+                                           withSuccedBlock: (succedBlock) theSuccedBlock
+                                          withFailureBlock: (failureBlock) theFailureBlock
 {
     AFHTTPRequestOperation *operation;
     NSMutableDictionary *queryDictionary = [NSMutableDictionary dictionary];
@@ -187,7 +195,7 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
         [queryDictionary setObject:theRelationNames forKey:@"include"];
     }
     
-    
+// PREVIOUSLY:
 //    if(descendingOrder)
 //    {
 //        NSString *descendingOrder = @"{\"order\"=\"-createdAt\"}";
@@ -265,28 +273,19 @@ https://api.parse.com/1/classes/Comment
     return operation;
 }
 
-- (NSString*) preapreRelatedToStringRequestForClass: (Class) theOwnerOfTheRelation
-                                      ownerGlobalId: (NSString*) theOwnerGlobalId
-                               relationNameInTheAPI: (NSString*) theRelationName
-{
-    return [NSString stringWithFormat:@"{\"$relatedTo\":{\"object\":{\"__type\":\"Pointer\",\"className\":\"%@\",\"objectId\":\"%@\"},\"key\":\"%@\"}}", NSStringFromClass(theOwnerOfTheRelation),theOwnerGlobalId,theRelationName];
-}
-
-
-- (AFHTTPRequestOperation *)GETHTTPRequestOperationForServerMethod:(NSString *)requestString
-                                                        parameters:(NSDictionary*)parameters
-                                                      succeedBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject)) theSucceedBlock
-                                                      failureBlock:(void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock{
+- (AFHTTPRequestOperation *)GETHTTPRequestOperationForServerMethod: (NSString *)requestString
+                                                        parameters: (NSDictionary*)parameters
+                                                      succeedBlock: (void(^)(AFHTTPRequestOperation *operation, id responseObject)) theSucceedBlock
+                                                      failureBlock: (void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock{
     AFHTTPRequestOperation *operation = nil;
     operation = [self GET:[NSString stringWithFormat:@"/1/%@",requestString] parameters:parameters success:theSucceedBlock failure:theSucceedBlock];
     return operation;
 }
 
-- (AFHTTPRequestOperation *)POSTHTTPRequestOperationForClass:(Class) className
-                                                  parameters:(NSDictionary *) parameters
-                                                 succedBlock:(succedBlock) theSuccedBlock
-                                                failureBlock:(failureBlock) theFailureBlock
-                                               returnRelations:(BOOL) includeRelations
+- (AFHTTPRequestOperation *)POSTHTTPRequestOperationForClass: (Class) className
+                                                  parameters: (NSDictionary *) parameters
+                                                 succedBlock: (succedBlock) theSuccedBlock
+                                                failureBlock: (failureBlock) theFailureBlock
 {
     AFHTTPRequestOperation *operation;
     //TODO: walidacja parametrow
@@ -294,37 +293,87 @@ https://api.parse.com/1/classes/Comment
     return operation;
 }
 
-- (AFHTTPRequestOperation *)POSTHTTPRequestOperationForServerMethod:(NSString*) serverMethod
-                                                         parameters:(NSDictionary*) parameters
-                                                        succedBlock:(succedBlock) theSuccedBlock
-                                                       failureBlock:(failureBlock) theFailureBlock{
+- (AFHTTPRequestOperation *)POSTHTTPRequestOperationForServerMethod: (NSString*) serverMethod
+                                                         parameters: (NSDictionary*) parameters
+                                                        succedBlock: (succedBlock) theSuccedBlock
+                                                       failureBlock: (failureBlock) theFailureBlock{
     AFHTTPRequestOperation *operation;
-    //TODO: walidacja
+    //TODO: walidacja parametrow
     operation = [self POST:[NSString stringWithFormat:@"/1/%@",serverMethod] parameters:parameters success:theSuccedBlock failure:theFailureBlock];
     return operation;
 }
 
 
-- (AFHTTPRequestOperation *)PUTHTTPRequestOperationForClass:(Class) className
-                                                 parameters:(NSDictionary *) paramters
-                                                succedBlock:(succedBlock) theSuccedBlock
-                                               failureBlock:(failureBlock) theFailureBlock
+- (AFHTTPRequestOperation *)PUTHTTPRequestOperationForClass: (Class) className
+                                                 parameters: (NSDictionary *) paramters
+                                                   globalId: (NSString*) globalId
+                                                succedBlock: (succedBlock) theSuccedBlock
+                                               failureBlock: (failureBlock) theFailureBlock
 {
     AFHTTPRequestOperation *operation;
     //TODO: walidacja parametrow
-    operation = [self PUT:[NSString stringWithFormat:@"classes/%@", NSStringFromClass(className)] parameters:paramters success:theSuccedBlock failure:theFailureBlock];
+    operation = [self PUT:[NSString stringWithFormat:@"classes/%@/%@", NSStringFromClass(className),globalId] parameters:paramters success:theSuccedBlock failure:theFailureBlock];
+    return operation;
+}
+
+- (AFHTTPRequestOperation *)PUTHTTPRequestOperationForServerMethod: (NSString*) serverMethod
+                                                     parameters: (NSDictionary*) parameters
+                                                    succedBlock: (succedBlock) theSuccedBlock
+                                                   failureBlock: (failureBlock) theFailureBlock{
+    AFHTTPRequestOperation *operation = [self PUT:[NSString stringWithFormat:@"/1/%@",serverMethod] parameters:parameters success:theSuccedBlock failure:theFailureBlock];
+    return operation;
+}
+
+- (AFHTTPRequestOperation *) PUTHTTPRelationRequestOperationForParentClass:(Class) parentClassName
+                                                             childrenClass:(Class) childrenClassName
+                                                              relationName:(NSString*) relationName
+                                                        withParentGlobalId:(NSString*) parentGlobalId
+                                                      withChildrenGlobalId:(NSString*) childrenGlobalId
+                                                               succedBlock:(succedBlock) theSuccedBlock
+                                                              failureBlock:(failureBlock) theFailureBlock
+{
+    AFHTTPRequestOperation *operation;
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    
+    NSString *localParentName = NSStringFromClass(parentClassName);
+    NSString *localChildrenName = NSStringFromClass(childrenClassName);
+    
+    if([NSStringFromClass(parentClassName) isEqualToString:@"User"])
+    {
+        localParentName = @"_User";
+    }
+    else if([NSStringFromClass(childrenClassName) isEqualToString:@"User"])
+    {
+        localChildrenName = @"_User";
+    }
+    
+    [parameters setObject:@"AddRelation" forKey:@"__op"];
+    [parameters setObject:@[@{@"__type":@"Pointer",@"className":localChildrenName,@"objectId":childrenGlobalId}] forKey:@"objects"];
+    
+    NSMutableDictionary *relationParameters = [NSMutableDictionary dictionaryWithObject:parameters forKey:relationName];
+    
+    operation = [self PUT:[NSString stringWithFormat:@"classes/%@/%@",localParentName, parentGlobalId] parameters:relationParameters success:theSuccedBlock failure:theFailureBlock];
     return operation;
 }
 
 
-- (AFHTTPRequestOperation *)DELETEHTTPRequestOperationForClass:(Class) className
-                                                      objectId:(NSString*) globalId
-                                                   succedBlock:(succedBlock) theSuccedBlock
-                                                  failureBlock:(failureBlock) theFailureBlock
+- (AFHTTPRequestOperation *)DELETEHTTPRequestOperationForClass: (Class) className
+                                                      objectId: (NSString*) globalId
+                                                   succedBlock: (succedBlock) theSuccedBlock
+                                                  failureBlock: (failureBlock) theFailureBlock
 {
     AFHTTPRequestOperation *operation;
     //TODO: walidacja parametrow
     operation = [self DELETE:[NSString stringWithFormat:@"classes/%@/%@", className, globalId] parameters:nil success:theSuccedBlock failure:theFailureBlock];
+    return operation;
+}
+
+- (AFHTTPRequestOperation*)DELETEHTTPRequestOperationForServerMethod:(NSString*) serverMethod
+                                                         succedBlock:(succedBlock) theSuccedBlock
+                                                        failureBlock:(failureBlock) theFailureBlock
+{
+     AFHTTPRequestOperation *operation = [self DELETE:[NSString stringWithFormat:@"/1/%@",serverMethod] parameters:nil success:theSuccedBlock failure:theFailureBlock];
     return operation;
 }
 
@@ -343,6 +392,9 @@ https://api.parse.com/1/classes/Comment
     return operation;
 }
 
+#pragma mark
+#pragma mark return NSMutableRequests
+
 - (NSMutableURLRequest*)POSTHTTPRequestForPhoto: (NSURL*) location
                                    imageQuality: (CGFloat) quaility
                                  localImageName: (NSString*) imageName
@@ -351,9 +403,8 @@ https://api.parse.com/1/classes/Comment
     NSMutableString *urlString = [NSMutableString string];
     NSString *pathString = [NSString stringWithFormat:@"files/%@",imageName];
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
-    assert(image);
     
-    //TODO: check file size
+    assert(image);
     
     NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[location path] error:nil];
     NSNumber *fileSizeNumber = [fileAttributes objectForKey:NSFileSize];
@@ -366,6 +417,8 @@ https://api.parse.com/1/classes/Comment
     
     NSURL *url = [NSURL URLWithString:urlString];
     
+    [[LMAFHTTPRequestOperationManager sharedClient] switchRequestSerializerForHttp];
+    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:@"POST"];
     
@@ -377,6 +430,9 @@ https://api.parse.com/1/classes/Comment
     [request setHTTPBody:UIImageJPEGRepresentation(image, quaility)];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue currentQueue] completionHandler:theCompletionBlock];
+    
+    [[LMAFHTTPRequestOperationManager sharedClient] switchRequestSerializerForJSON];
+    
     return request;
 }
 
@@ -387,5 +443,13 @@ https://api.parse.com/1/classes/Comment
     [self doesNotRecognizeSelector:_cmd];
     return nil;
 }
+
+- (NSString*) preapreRelatedToStringRequestForClass: (Class) theOwnerOfTheRelation
+                                      ownerGlobalId: (NSString*) theOwnerGlobalId
+                               relationNameInTheAPI: (NSString*) theRelationName
+{
+    return [NSString stringWithFormat:@"{\"$relatedTo\":{\"object\":{\"__type\":\"Pointer\",\"className\":\"%@\",\"objectId\":\"%@\"},\"key\":\"%@\"}}", NSStringFromClass(theOwnerOfTheRelation),theOwnerGlobalId,theRelationName];
+}
+
 
 @end

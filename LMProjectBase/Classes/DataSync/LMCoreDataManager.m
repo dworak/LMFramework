@@ -198,7 +198,17 @@ return sharedInstance;
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"TTGettoModel" withExtension:@"momd"];
+    NSDictionary *settingsDictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
+    NSAssert(settingsDictionary, @"There is no settings.plist file in your mainBundle");
+    
+    NSString *projectName = [settingsDictionary valueForKey:@"projectName"];
+    
+    NSAssert(projectName, @"There is no value for projectName in your settings.plist");
+    
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:projectName withExtension:@"momd"];
+    
+    NSAssert1(modelURL, @"There is no model named %@",projectName);
+    
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -211,7 +221,14 @@ return sharedInstance;
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"TTGetto.sqlite"];
+    NSDictionary *settingsDictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
+    NSAssert(settingsDictionary, @"There is no settings.plist file in your mainBundle");
+    
+    NSString *projectName = [settingsDictionary valueForKey:@"projectName"];
+    
+    NSAssert(projectName, @"There is no value for projectName in your settings.plist");
+    
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.sqlite",projectName]];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

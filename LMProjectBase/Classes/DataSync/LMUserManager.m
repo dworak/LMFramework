@@ -25,7 +25,7 @@
   withFailureBlock:(failureBlock) theFailureBlock;
 {
     LMAFHTTPRequestOperationManager *manager = [LMAFHTTPRequestOperationManager sharedClient];
-    [manager switchRequestSerializerForHttp];
+    [manager switchRequestSerializerForJSON];
     NSDictionary *loginDictionary = @{@"username":userName, @"password":password};
     [manager GETHTTPRequestOperationForServerMethod:@"login" parameters:loginDictionary succeedBlock:theSuccedBlock failureBlock:theFailureBlock];
 }
@@ -87,5 +87,31 @@
     [manager switchRequestSerializerForJSON];
     [manager GETHTTPRequestOperationForServerMethod:[NSString stringWithFormat:@"users/%@", globalUserId]  parameters:nil succeedBlock:theSuccedBlock failureBlock:theFailureBlock];
 }
+
+- (void)updateUserId: (NSString*) userId
+    forParameterName: (NSString*) parameterName
+            newValue: (NSString*) valueToBeSet
+    withSessionToken: (NSString*) sessionToken
+     withSuccedBlock: (succedBlock) theSuccedBlock
+    withFailureBlock: (failureBlock) theFailueBlock
+{
+    LMAFHTTPRequestOperationManager *manager = [LMAFHTTPRequestOperationManager sharedClient];
+    [manager switchRequestSerializerForJSON];
+    [manager.requestSerializer setValue:sessionToken forHTTPHeaderField:@"X-Parse-Session-Token"];
+    [manager PUTHTTPRequestOperationForServerMethod:[NSString stringWithFormat:@"users/%@", userId] parameters:@{parameterName:valueToBeSet} succedBlock:theSuccedBlock failureBlock:theFailueBlock];
+    
+}
+
+- (void) deleteUserId: (NSString*) userId
+     withSessionToken: (NSString*) sessionToken
+      withSuccedBlock: (succedBlock) theSuccedBlock
+     withFailureBlock: (failureBlock) theFailureBlock
+{
+    LMAFHTTPRequestOperationManager *manager = [LMAFHTTPRequestOperationManager sharedClient];
+    [manager switchRequestSerializerForJSON];
+    [manager.requestSerializer setValue:sessionToken forHTTPHeaderField:@"X-Parse-Session-Token"];
+    [manager DELETEHTTPRequestOperationForServerMethod:[NSString stringWithFormat:@"users/%@", userId] succedBlock:theSuccedBlock failureBlock:theFailureBlock];
+}
+
 
 @end

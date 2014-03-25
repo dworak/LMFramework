@@ -27,6 +27,13 @@ typedef void (^completionBlock)(NSURLResponse * response, NSData *data, NSError 
       withSuccedBlock:(succedBlock) theSuccedBlock
      withFailureBlock:(failureBlock) theFailureBlock;
 
+- (void)updateUserId: (NSString*) userId
+    forParameterName: (NSString*) parameterName
+            newValue: (NSString*) valueToBeSet
+    withSessionToken: (NSString*) sessionToken
+     withSuccedBlock: (succedBlock) theSuccedBlock
+    withFailureBlock: (failureBlock) theFailueBlock;
+
 - (void) retriveUserByGlobalUserId:(NSString*) globalUserId
                    withSuccedBlock:(succedBlock) theSuccedBlock
                   withFailureBlock:(failureBlock) theFailureBlock;
@@ -38,4 +45,9 @@ typedef void (^completionBlock)(NSURLResponse * response, NSData *data, NSError 
 - (void) getAllRegisteredUsersWithQueryParamters: (NSDictionary*) parameters
                                      succedBlock: (succedBlock) theSuccedBlock
                                     failureBlock: (failureBlock) theFailureBlock;
+
+- (void) deleteUserId: (NSString*) userId
+     withSessionToken: (NSString*) sessionToken
+      withSuccedBlock: (succedBlock) theSuccedBlock
+     withFailureBlock: (failureBlock) theFailureBlock;
 @end
