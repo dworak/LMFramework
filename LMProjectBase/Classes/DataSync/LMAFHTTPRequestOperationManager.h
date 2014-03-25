@@ -60,12 +60,6 @@ typedef void (^completionBlock)(NSURLResponse * response, NSData *data, NSError 
                                                       succeedBlock:(succedBlock) theSucceedBlock
                                                       failureBlock:(failureBlock) theFailureBlock;
 
-
-- (AFHTTPRequestOperation *)POSTHTTPRequestOperationForClass:(Class) className
-                                                  parameters:(NSDictionary *) parameters
-                                                 succedBlock:(succedBlock) theSuccedBlock
-                                                failureBlock:(failureBlock) theFailureBlock;
-
 - (AFHTTPRequestOperation *)POSTHTTPRequestOperationForServerMethod:(NSString*) serverMethod
                                                          parameters:(NSDictionary*) parameters
                                                         succedBlock:(succedBlock) theSuccedBlock

@@ -179,7 +179,7 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     
     if(theRowLimit!=-1)
     {
-        [queryDictionary setObject:[NSNumber numberWithInt:theRowLimit] forKey:@"limit"];
+        [queryDictionary setObject:[NSNumber numberWithInt:(int)theRowLimit] forKey:@"limit"];
     }
     
     if(theRelationNames.count>0)
