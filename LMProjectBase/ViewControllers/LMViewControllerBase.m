@@ -7,7 +7,6 @@
 //
 
 #import "LMViewControllerBase.h"
-#import "LMScrollHelperView.h"
 
 #define kLMIphoneLandscapeKeyboardOriginY 158
 #define kLMIphonePortraitKeyboardOriginY 264
@@ -18,10 +17,9 @@
 #define kLMScrollBottomMargin 10
 
 @interface LMViewControllerBase ()
-@property (strong, nonatomic) UIScrollView *contentScrollView;
 @property (unsafe_unretained, nonatomic) CGRect currentKeyboardFrame;
 @property (weak, nonatomic) UITextField *currentEditingTextField;
-@property (strong, nonatomic) LMScrollHelperView *view;
+
 
 - (void)addContentScrollView;
 - (void)returnToDefaultScrollContentSize:(BOOL)defaultContent withUserInfoDictionary:(NSDictionary*) userInfo;
@@ -30,27 +28,12 @@
 
 @implementation LMViewControllerBase
 
-
-- (void) loadView
-{
-    [super loadView];
-    
-    //self.view = [[LMScrollHelperView alloc]initWithFrame:self.view.frame];
-    
-    //Add content scroll view
-    [self addContentScrollView];
-    
-    __weak LMViewControllerBase *weakSelf = self;
-    
-    ((LMScrollHelperView*)self.view).passToScrollViewBlock = ^(UIView *view){
-        [weakSelf addContentSubview:view];
-    };
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    [self addContentScrollView];
     
     //Add keyboard notifications
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -187,7 +170,7 @@
 }
 
 - (void)addContentScrollView {
-    self.contentScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    _contentScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     
     [self returnToDefaultScrollContentSize:YES withUserInfoDictionary:nil];
     

@@ -11,4 +11,5 @@
 @interface LMViewControllerBase : UIViewController
 // Add subview to content scroll view
 - (void)addContentSubview:(UIView *)v;
+@property (strong, nonatomic, readonly) UIScrollView *contentScrollView;
 @end
