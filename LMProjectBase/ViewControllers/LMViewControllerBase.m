@@ -7,6 +7,7 @@
 //
 
 #import "LMViewControllerBase.h"
+#import "LMScrollHelperView.h"
 
 #define kLMIphoneLandscapeKeyboardOriginY 158
 #define kLMIphonePortraitKeyboardOriginY 264
@@ -28,13 +29,27 @@
 
 @implementation LMViewControllerBase
 
+
+- (void) loadView
+{
+    [super loadView];
+    
+    //Add content scroll view
+    [self addContentScrollView];
+    
+    self.view = [[LMScrollHelperView alloc]initWithFrame:self.view.frame];
+    
+    __weak LMViewControllerBase *weakSelf = self;
+    
+    ((LMScrollHelperView*)self.view).passToScrollViewBlock = ^(UIView *view){
+        [weakSelf addContentSubview:view];
+    };
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
-    //Add content scroll view
-    [self addContentScrollView];
     
     //Add keyboard notifications
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(onKeyboardHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -126,6 +141,7 @@
         UITextField *textField = (UITextField *)v;
         [textField addTarget:self action:@selector(textFieldChange:) forControlEvents:UIControlEventEditingDidBegin];
     }
+    
     [self.contentScrollView addSubview:v];
 }
 
