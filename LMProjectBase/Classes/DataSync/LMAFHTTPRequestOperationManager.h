@@ -28,10 +28,10 @@ typedef void (^completionBlock)(NSURLResponse * response, NSData *data, NSError 
                                                 succedBlock: (succedBlock) theSucceedBlock
                                                failureBlock: (failureBlock) theFailureBlock;
 
-- (AFHTTPRequestOperation*)GETHTTPRequestOperationForAllRecordsOfClass:(Class)className
-                                                      updatedAfterDate:(NSDate *)updatedDate
-                                                           succedBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject)) theSucceedBlock
-                                                          failureBlock:(void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock;
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForAllRecordsOfClass: (Class)className
+                                                      updatedAfterDate: (NSDate *)updatedDate
+                                                           succedBlock: (void(^)(AFHTTPRequestOperation *operation, id responseObject)) theSucceedBlock
+                                                          failureBlock: (void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock;
 
 
 - (AFHTTPRequestOperation*)GETHTTPRequestOperationForRelationName: (NSString*) theRelationName
@@ -41,12 +41,12 @@ typedef void (^completionBlock)(NSURLResponse * response, NSData *data, NSError 
                                                   withSuccedBlock: (succedBlock) thesuccedBlock
                                                  withFailureBlock: (failureBlock) theFailureBlock;
 
-- (AFHTTPRequestOperation*)GETHTTPRequestOperationForClass:(Class)className
-                                           orderDescending:(BOOL) descendingOrder
-                                              withRowLimit:(NSUInteger) theRowLimit
-                                          includeRelations:(NSArray*) theRelationNames
-                                           withSuccedBlock:(succedBlock) theSuccedBlock
-                                          withFailureBlock:(failureBlock) theFailureBlock;
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForClass: (Class)className
+                                           orderDescending: (BOOL) descendingOrder
+                                              withRowLimit: (NSUInteger) theRowLimit
+                                          includeRelations: (NSArray*) theRelationNames
+                                           withSuccedBlock: (succedBlock) theSuccedBlock
+                                          withFailureBlock: (failureBlock) theFailureBlock;
 
 - (AFHTTPRequestOperation*)GETHTTPRequestOperationForRelationName: (NSString*) theRelationName
                                                 withOwnerGlobalId: (NSString*) theOwnerGlobalId
@@ -60,10 +60,17 @@ typedef void (^completionBlock)(NSURLResponse * response, NSData *data, NSError 
                                                       succeedBlock:(succedBlock) theSucceedBlock
                                                       failureBlock:(failureBlock) theFailureBlock;
 
+
 - (AFHTTPRequestOperation *)POSTHTTPRequestOperationForServerMethod:(NSString*) serverMethod
                                                          parameters:(NSDictionary*) parameters
                                                         succedBlock:(succedBlock) theSuccedBlock
                                                        failureBlock:(failureBlock) theFailureBlock;
+
+
+- (AFHTTPRequestOperation *)POSTHTTPRequestOperationForClass: (Class) className
+                                                  parameters: (NSDictionary *) parameters
+                                                 succedBlock: (succedBlock) theSuccedBlock
+                                                failureBlock: (failureBlock) theFailureBlock;
 
 - (NSMutableURLRequest*)POSTHTTPRequestForPhoto: (NSURL*) location
                                    imageQuality: (CGFloat) quaility
@@ -76,13 +83,31 @@ typedef void (^completionBlock)(NSURLResponse * response, NSData *data, NSError 
                                                 succedBlock: (succedBlock) theSuccedBlock
                                                failureBlock: (failureBlock) theFailureBlock;
 
-- (AFHTTPRequestOperation *)PUTHTTPRequestOperationForClass:(Class) className
-                                                 parameters:(NSDictionary *) paramters
-                                                succedBlock:(succedBlock) theSuccedBlock
-                                               failureBlock:(failureBlock) theFailureBlock;
+- (AFHTTPRequestOperation *)PUTHTTPRequestOperationForClass: (Class) className
+                                                 parameters: (NSDictionary *) paramters
+                                                   globalId: (NSString*) globalId
+                                                succedBlock: (succedBlock) theSuccedBlock
+                                               failureBlock: (failureBlock) theFailureBlock;
 
-- (AFHTTPRequestOperation *)DELETEHTTPRequestOperationForClass:(Class) className
-                                                      objectId:(NSString*) globalId
-                                                   succedBlock:(succedBlock) theSuccedBlock
-                                                  failureBlock:(failureBlock) theFailureBlock;
+- (AFHTTPRequestOperation *)PUTHTTPRequestOperationForServerMethod: (NSString*) serverMethod
+                                                        parameters: (NSDictionary*) parameters
+                                                       succedBlock: (succedBlock) theSuccedBlock
+                                                      failureBlock: (failureBlock) theFailureBlock;
+
+- (AFHTTPRequestOperation *) PUTHTTPRelationRequestOperationForParentClass:(Class) parentClassName
+                                                             childrenClass:(Class) childrenClassName
+                                                              relationName:(NSString*) relationName
+                                                        withParentGlobalId:(NSString*) parentGlobalId
+                                                      withChildrenGlobalId:(NSString*) childrenGlobalId
+                                                               succedBlock:(succedBlock) theSuccedBlock
+                                                              failureBlock:(failureBlock) theFailureBlock;
+
+- (AFHTTPRequestOperation *)DELETEHTTPRequestOperationForClass: (Class) className
+                                                      objectId: (NSString*) globalId
+                                                   succedBlock: (succedBlock) theSuccedBlock
+                                                  failureBlock: (failureBlock) theFailureBlock;
+
+- (AFHTTPRequestOperation*)DELETEHTTPRequestOperationForServerMethod: (NSString*) serverMethod
+                                                         succedBlock: (succedBlock) theSuccedBlock
+                                                        failureBlock: (failureBlock) theFailureBlock;
 @end
