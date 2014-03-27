@@ -18,7 +18,6 @@
 
 @interface LMViewControllerBase ()
 @property (unsafe_unretained, nonatomic) CGRect currentKeyboardFrame;
-@property (weak, nonatomic) UITextField *currentEditingTextField;
 
 
 - (void)addContentScrollView;

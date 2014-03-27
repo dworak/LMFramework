@@ -105,6 +105,15 @@
 		FB5F60A718BDEABD00F1C0B1 /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = FB90589718BCA7C1002D791A /* NSData+Base64Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FB5F60A818BDEABD00F1C0B1 /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FB90589B18BCA7C1002D791A /* NSStream+SKPSMTPExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FB5F60A918BDEABD00F1C0B1 /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FB90589F18BCA7C1002D791A /* SKPSMTPMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		FB77FCA218E4C414009B9AD6 /* MCSCollectionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = FB77FC9B18E4C414009B9AD6 /* MCSCollectionUtilities.h */; };
+		FB77FCA318E4C414009B9AD6 /* NSArray+MCSCollectionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = FB77FC9C18E4C414009B9AD6 /* NSArray+MCSCollectionUtilities.h */; };
+		FB77FCA418E4C414009B9AD6 /* NSArray+MCSCollectionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FB77FC9D18E4C414009B9AD6 /* NSArray+MCSCollectionUtilities.m */; };
+		FB77FCA518E4C414009B9AD6 /* NSDictionary+MCSCollectionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = FB77FC9E18E4C414009B9AD6 /* NSDictionary+MCSCollectionUtilities.h */; };
+		FB77FCA618E4C414009B9AD6 /* NSDictionary+MCSCollectionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FB77FC9F18E4C414009B9AD6 /* NSDictionary+MCSCollectionUtilities.m */; };
+		FB77FCA718E4C414009B9AD6 /* NSSet+MCSCollectionUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = FB77FCA018E4C414009B9AD6 /* NSSet+MCSCollectionUtilities.h */; };
+		FB77FCA818E4C414009B9AD6 /* NSSet+MCSCollectionUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FB77FCA118E4C414009B9AD6 /* NSSet+MCSCollectionUtilities.m */; };
+		FB77FCAB18E4C471009B9AD6 /* LDArrayFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = FB77FCA918E4C471009B9AD6 /* LDArrayFunctions.h */; };
+		FB77FCAC18E4C471009B9AD6 /* LDArrayFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = FB77FCAA18E4C471009B9AD6 /* LDArrayFunctions.m */; };
 		FB7FFDE018BE508900CBECD5 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = FB7FFDDE18BE508900CBECD5 /* Reachability.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB7FFDE118BE508900CBECD5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7FFDDF18BE508900CBECD5 /* Reachability.m */; };
 		FB90581F18BC9A4A002D791A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB90581E18BC9A4A002D791A /* Foundation.framework */; };
@@ -157,8 +166,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FB024AA918E16A0E001F1EF9 /* Guid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guid.h; sourceTree = "<group>"; };
-		FB024AAA18E16A0E001F1EF9 /* Guid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Guid.m; sourceTree = "<group>"; };
+		FB024AA918E16A0E001F1EF9 /* Guid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Guid.h; path = Guid/Guid.h; sourceTree = "<group>"; };
+		FB024AAA18E16A0E001F1EF9 /* Guid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Guid.m; path = Guid/Guid.m; sourceTree = "<group>"; };
 		FB4F5D2A18D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		FB4F5D2B18D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		FB4F5D2C18D1AA4F00C4A420 /* LMAFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -255,6 +264,15 @@
 		FB54AA1818D3118100CBCA5A /* TTUnits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTUnits.m; sourceTree = "<group>"; };
 		FB54AA4D18D314C100CBCA5A /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		FB54AA5518D321D200CBCA5A /* NSString+TT_No_Arc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TT_No_Arc.m"; sourceTree = "<group>"; };
+		FB77FC9B18E4C414009B9AD6 /* MCSCollectionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MCSCollectionUtilities.h; path = Macoscope/MCSCollectionUtilities.h; sourceTree = "<group>"; };
+		FB77FC9C18E4C414009B9AD6 /* NSArray+MCSCollectionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSArray+MCSCollectionUtilities.h"; path = "Macoscope/NSArray+MCSCollectionUtilities.h"; sourceTree = "<group>"; };
+		FB77FC9D18E4C414009B9AD6 /* NSArray+MCSCollectionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MCSCollectionUtilities.m"; path = "Macoscope/NSArray+MCSCollectionUtilities.m"; sourceTree = "<group>"; };
+		FB77FC9E18E4C414009B9AD6 /* NSDictionary+MCSCollectionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MCSCollectionUtilities.h"; path = "Macoscope/NSDictionary+MCSCollectionUtilities.h"; sourceTree = "<group>"; };
+		FB77FC9F18E4C414009B9AD6 /* NSDictionary+MCSCollectionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MCSCollectionUtilities.m"; path = "Macoscope/NSDictionary+MCSCollectionUtilities.m"; sourceTree = "<group>"; };
+		FB77FCA018E4C414009B9AD6 /* NSSet+MCSCollectionUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSSet+MCSCollectionUtilities.h"; path = "Macoscope/NSSet+MCSCollectionUtilities.h"; sourceTree = "<group>"; };
+		FB77FCA118E4C414009B9AD6 /* NSSet+MCSCollectionUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSSet+MCSCollectionUtilities.m"; path = "Macoscope/NSSet+MCSCollectionUtilities.m"; sourceTree = "<group>"; };
+		FB77FCA918E4C471009B9AD6 /* LDArrayFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LDArrayFunctions.h; path = Macoscope/LDArrayFunctions.h; sourceTree = "<group>"; };
+		FB77FCAA18E4C471009B9AD6 /* LDArrayFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LDArrayFunctions.m; path = Macoscope/LDArrayFunctions.m; sourceTree = "<group>"; };
 		FB7FFDDE18BE508900CBECD5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		FB7FFDDF18BE508900CBECD5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		FB90581B18BC9A4A002D791A /* libLM.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLM.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -434,6 +452,22 @@
 			path = TTCore;
 			sourceTree = "<group>";
 		};
+		FB77FC8C18E4C27A009B9AD6 /* Macoscope */ = {
+			isa = PBXGroup;
+			children = (
+				FB77FC9B18E4C414009B9AD6 /* MCSCollectionUtilities.h */,
+				FB77FC9C18E4C414009B9AD6 /* NSArray+MCSCollectionUtilities.h */,
+				FB77FC9D18E4C414009B9AD6 /* NSArray+MCSCollectionUtilities.m */,
+				FB77FC9E18E4C414009B9AD6 /* NSDictionary+MCSCollectionUtilities.h */,
+				FB77FC9F18E4C414009B9AD6 /* NSDictionary+MCSCollectionUtilities.m */,
+				FB77FCA018E4C414009B9AD6 /* NSSet+MCSCollectionUtilities.h */,
+				FB77FCA118E4C414009B9AD6 /* NSSet+MCSCollectionUtilities.m */,
+				FB77FCA918E4C471009B9AD6 /* LDArrayFunctions.h */,
+				FB77FCAA18E4C471009B9AD6 /* LDArrayFunctions.m */,
+			);
+			name = Macoscope;
+			sourceTree = "<group>";
+		};
 		FB7FFDDD18BE508900CBECD5 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +556,7 @@
 		FB90584618BC9C9D002D791A /* 3rdParty */ = {
 			isa = PBXGroup;
 			children = (
+				FB77FC8C18E4C27A009B9AD6 /* Macoscope */,
 				FB024AA818E169FF001F1EF9 /* GUID */,
 				FB54A9E418D3118100CBCA5A /* TTCore */,
 				FB54A9D918D30AFA00CBCA5A /* Keychain */,
@@ -610,9 +645,11 @@
 				FB54A9A018D2E94400CBCA5A /* TTHostViewController.h in Headers */,
 				FB54A99F18D2E94400CBCA5A /* TTChildViewControllerProtocol.h in Headers */,
 				FB54A9C518D2E96700CBCA5A /* UIProgressView+AFNetworking.h in Headers */,
+				FB77FCA218E4C414009B9AD6 /* MCSCollectionUtilities.h in Headers */,
 				FB54A9B918D2E96700CBCA5A /* AFNetworking.h in Headers */,
 				FB54A9B518D2E96700CBCA5A /* AFHTTPRequestOperation.h in Headers */,
 				FB54A9C018D2E96700CBCA5A /* UIActivityIndicatorView+AFNetworking.h in Headers */,
+				FB77FCAB18E4C471009B9AD6 /* LDArrayFunctions.h in Headers */,
 				FB54A9BD18D2E96700CBCA5A /* AFURLRequestSerialization.h in Headers */,
 				FB54A9BF18D2E96700CBCA5A /* AFURLSessionManager.h in Headers */,
 				FB54A9B818D2E96700CBCA5A /* AFNetworkActivityIndicatorManager.h in Headers */,
@@ -624,9 +661,11 @@
 				FB4F5D3D18D1AA4F00C4A420 /* LMAppDelegate.h in Headers */,
 				FB5F609218BDE6B300F1C0B1 /* BackgroundEmail.h in Headers */,
 				FB54A9D718D308D800CBCA5A /* NSManagedObjectContext+FetchedObjectFromURI.h in Headers */,
+				FB77FCA318E4C414009B9AD6 /* NSArray+MCSCollectionUtilities.h in Headers */,
 				FBDEB45E18D98C91000373C7 /* NSDictionary+URLEncoding.h in Headers */,
 				FB54A9DC18D30B2F00CBCA5A /* KeychainItemWrapper.h in Headers */,
 				FB5F60A318BDEA8F00F1C0B1 /* SKPSMTPMessage.h in Headers */,
+				FB77FCA518E4C414009B9AD6 /* NSDictionary+MCSCollectionUtilities.h in Headers */,
 				FB54A9C618D2E96700CBCA5A /* UIWebView+AFNetworking.h in Headers */,
 				FB54A9C118D2E96700CBCA5A /* UIAlertView+AFNetworking.h in Headers */,
 				FB54A9C418D2E96700CBCA5A /* UIKit+AFNetworking.h in Headers */,
@@ -635,6 +674,7 @@
 				FB5F609618BDE6DD00F1C0B1 /* NSStream+SKPSMTPExtensions.h in Headers */,
 				FB5F609418BDE6C800F1C0B1 /* HSK_CFUtilities.h in Headers */,
 				FB5F609318BDE6C500F1C0B1 /* Base64Transcoder.h in Headers */,
+				FB77FCA718E4C414009B9AD6 /* NSSet+MCSCollectionUtilities.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,6 +800,7 @@
 				FB54AA4C18D3118100CBCA5A /* TTUnits.m in Sources */,
 				FB54AA4218D3118100CBCA5A /* TTSingleton.m in Sources */,
 				FB54AA4818D3118100CBCA5A /* TTTimer.m in Sources */,
+				FB77FCA818E4C414009B9AD6 /* NSSet+MCSCollectionUtilities.m in Sources */,
 				FB4F5D3E18D1AA4F00C4A420 /* LMAppDelegate.m in Sources */,
 				FB54AA3F18D3118100CBCA5A /* TTPropertyTransferer.m in Sources */,
 				FB4F5D4718D1AA4F00C4A420 /* LMUserManager.m in Sources */,
@@ -769,6 +810,7 @@
 				FB5F60A418BDEABD00F1C0B1 /* BackgroundEmail.m in Sources */,
 				FB54AA1E18D3118100CBCA5A /* NSSet+TT.m in Sources */,
 				FB54AA3B18D3118100CBCA5A /* TTObjectPoser.m in Sources */,
+				FB77FCAC18E4C471009B9AD6 /* LDArrayFunctions.m in Sources */,
 				FB5F60A518BDEABD00F1C0B1 /* Base64Transcoder.m in Sources */,
 				FB54A99E18D2E94400CBCA5A /* LMViewControllerBase.m in Sources */,
 				FB54A9DD18D30B2F00CBCA5A /* KeychainItemWrapper.m in Sources */,
@@ -786,6 +828,7 @@
 				FB54AA3618D3118100CBCA5A /* TTKeyValueParser.m in Sources */,
 				FB4F5D3C18D1AA4F00C4A420 /* LMAFHTTPSessionManager.m in Sources */,
 				FB54AA3418D3118100CBCA5A /* TTInteroperability.m in Sources */,
+				FB77FCA418E4C414009B9AD6 /* NSArray+MCSCollectionUtilities.m in Sources */,
 				FB54AA2518D3118100CBCA5A /* TTAbstractCoreDataManager.m in Sources */,
 				FB5F60A818BDEABD00F1C0B1 /* NSStream+SKPSMTPExtensions.m in Sources */,
 				FB54AA4A18D3118100CBCA5A /* TTTypes.m in Sources */,
@@ -797,6 +840,7 @@
 				FB54AA3218D3118100CBCA5A /* TTFilesystemManager.m in Sources */,
 				FB54AA3018D3118100CBCA5A /* TTFilesystemManager+Internals.m in Sources */,
 				FB7FFDE118BE508900CBECD5 /* Reachability.m in Sources */,
+				FB77FCA618E4C414009B9AD6 /* NSDictionary+MCSCollectionUtilities.m in Sources */,
 				FB54A9D818D308D800CBCA5A /* NSManagedObjectContext+FetchedObjectFromURI.m in Sources */,
 				FBDEB45F18D98C91000373C7 /* NSDictionary+URLEncoding.m in Sources */,
 			);
