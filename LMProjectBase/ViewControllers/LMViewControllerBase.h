@@ -11,5 +11,7 @@
 @interface LMViewControllerBase : UIViewController
 // Add subview to content scroll view
 - (void)addContentSubview:(UIView *)v;
+- (void)setBouncesPropertyForRootView: (BOOL) bounces;
+- (void)shakeAnimation:(NSArray*) views;
 @property (strong, nonatomic, readonly) UIScrollView *contentScrollView;
 @end
