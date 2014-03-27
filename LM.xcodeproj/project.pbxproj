@@ -22,6 +22,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		FB024AAB18E16A0E001F1EF9 /* Guid.h in Headers */ = {isa = PBXBuildFile; fileRef = FB024AA918E16A0E001F1EF9 /* Guid.h */; };
+		FB024AAC18E16A0E001F1EF9 /* Guid.m in Sources */ = {isa = PBXBuildFile; fileRef = FB024AAA18E16A0E001F1EF9 /* Guid.m */; };
+		FB024AFE18E4120E001F1EF9 /* LMScrollHelperView.h in Headers */ = {isa = PBXBuildFile; fileRef = FB024AFC18E4120E001F1EF9 /* LMScrollHelperView.h */; };
+		FB024AFF18E4120E001F1EF9 /* LMScrollHelperView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB024AFD18E4120E001F1EF9 /* LMScrollHelperView.m */; };
 		FB4F5D3918D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FB4F5D2A18D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB4F5D3A18D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4F5D2B18D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.m */; };
 		FB4F5D3B18D1AA4F00C4A420 /* LMAFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FB4F5D2C18D1AA4F00C4A420 /* LMAFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -155,6 +159,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FB024AA918E16A0E001F1EF9 /* Guid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guid.h; sourceTree = "<group>"; };
+		FB024AAA18E16A0E001F1EF9 /* Guid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Guid.m; sourceTree = "<group>"; };
+		FB024AFC18E4120E001F1EF9 /* LMScrollHelperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMScrollHelperView.h; path = ViewControllers/LMScrollHelperView.h; sourceTree = "<group>"; };
+		FB024AFD18E4120E001F1EF9 /* LMScrollHelperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMScrollHelperView.m; path = ViewControllers/LMScrollHelperView.m; sourceTree = "<group>"; };
 		FB4F5D2A18D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		FB4F5D2B18D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
 		FB4F5D2C18D1AA4F00C4A420 /* LMAFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -305,6 +313,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB024AA818E169FF001F1EF9 /* GUID */ = {
+			isa = PBXGroup;
+			children = (
+				FB024AA918E16A0E001F1EF9 /* Guid.h */,
+				FB024AAA18E16A0E001F1EF9 /* Guid.m */,
+			);
+			name = GUID;
+			sourceTree = "<group>";
+		};
 		FB4F5D2918D1AA4F00C4A420 /* DataSync */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,6 +526,7 @@
 		FB90584618BC9C9D002D791A /* 3rdParty */ = {
 			isa = PBXGroup;
 			children = (
+				FB024AA818E169FF001F1EF9 /* GUID */,
 				FB54A9E418D3118100CBCA5A /* TTCore */,
 				FB54A9D918D30AFA00CBCA5A /* Keychain */,
 				FB54A9A218D2E95000CBCA5A /* AFNetworking */,
@@ -546,6 +564,8 @@
 			children = (
 				FB54A99818D2E94400CBCA5A /* LMViewControllerBase.h */,
 				FB54A99918D2E94400CBCA5A /* LMViewControllerBase.m */,
+				FB024AFC18E4120E001F1EF9 /* LMScrollHelperView.h */,
+				FB024AFD18E4120E001F1EF9 /* LMScrollHelperView.m */,
 				FB54A99A18D2E94400CBCA5A /* TTChildViewControllerProtocol.h */,
 				FB54A99B18D2E94400CBCA5A /* TTHostViewController.h */,
 				FB54A99C18D2E94400CBCA5A /* TTHostViewController.m */,
@@ -599,10 +619,12 @@
 				FB54A9B918D2E96700CBCA5A /* AFNetworking.h in Headers */,
 				FB54A9B518D2E96700CBCA5A /* AFHTTPRequestOperation.h in Headers */,
 				FB54A9C018D2E96700CBCA5A /* UIActivityIndicatorView+AFNetworking.h in Headers */,
+				FB024AFE18E4120E001F1EF9 /* LMScrollHelperView.h in Headers */,
 				FB54A9BD18D2E96700CBCA5A /* AFURLRequestSerialization.h in Headers */,
 				FB54A9BF18D2E96700CBCA5A /* AFURLSessionManager.h in Headers */,
 				FB54A9B818D2E96700CBCA5A /* AFNetworkActivityIndicatorManager.h in Headers */,
 				FB4F5D4518D1AA4F00C4A420 /* LMProjectBaseFramework-Prefix.pch in Headers */,
+				FB024AAB18E16A0E001F1EF9 /* Guid.h in Headers */,
 				FB4F5D3B18D1AA4F00C4A420 /* LMAFHTTPSessionManager.h in Headers */,
 				FB4F5D4318D1AA4F00C4A420 /* LMProjectBaseDelegate.h in Headers */,
 				FB4F5D3918D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.h in Headers */,
@@ -764,6 +786,7 @@
 				FB4F5D4218D1AA4F00C4A420 /* LMObjectManager.m in Sources */,
 				FB5F60A718BDEABD00F1C0B1 /* NSData+Base64Additions.m in Sources */,
 				FB54AA2B18D3118100CBCA5A /* TTConfiguration.m in Sources */,
+				FB024AAC18E16A0E001F1EF9 /* Guid.m in Sources */,
 				FBD6B2BD18BFAE2200E8C664 /* UIView+KeyboardAnimation.m in Sources */,
 				FB4F5D3A18D1AA4F00C4A420 /* LMAFHTTPRequestOperationManager.m in Sources */,
 				FB4F5D4418D1AA4F00C4A420 /* LMProjectBaseDelegate.m in Sources */,
@@ -778,6 +801,7 @@
 				FB54AA2018D3118100CBCA5A /* NSString+TT.m in Sources */,
 				FB4F5D4018D1AA4F00C4A420 /* LMCoreDataManager.m in Sources */,
 				FB5F60A918BDEABD00F1C0B1 /* SKPSMTPMessage.m in Sources */,
+				FB024AFF18E4120E001F1EF9 /* LMScrollHelperView.m in Sources */,
 				FB54AA3218D3118100CBCA5A /* TTFilesystemManager.m in Sources */,
 				FB54AA3018D3118100CBCA5A /* TTFilesystemManager+Internals.m in Sources */,
 				FB7FFDE118BE508900CBECD5 /* Reachability.m in Sources */,
