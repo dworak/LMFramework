@@ -21,6 +21,7 @@
 @property (strong, nonatomic) UIScrollView *contentScrollView;
 @property (unsafe_unretained, nonatomic) CGRect currentKeyboardFrame;
 @property (weak, nonatomic) UITextField *currentEditingTextField;
+@property (strong, nonatomic) LMScrollHelperView *view;
 
 - (void)addContentScrollView;
 - (void)returnToDefaultScrollContentSize:(BOOL)defaultContent withUserInfoDictionary:(NSDictionary*) userInfo;
@@ -34,10 +35,10 @@
 {
     [super loadView];
     
+    //self.view = [[LMScrollHelperView alloc]initWithFrame:self.view.frame];
+    
     //Add content scroll view
     [self addContentScrollView];
-    
-    self.view = [[LMScrollHelperView alloc]initWithFrame:self.view.frame];
     
     __weak LMViewControllerBase *weakSelf = self;
     
