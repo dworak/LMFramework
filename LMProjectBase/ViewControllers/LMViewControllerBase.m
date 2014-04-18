@@ -8,8 +8,8 @@
 
 #import "LMViewControllerBase.h"
 
-#define kLMIphoneLandscapeKeyboardOriginY 158
-#define kLMIphonePortraitKeyboardOriginY 264
+#define kLMIphoneLandscapeKeyboardOriginY 418
+#define kLMIphonePortraitKeyboardOriginY 352
 
 #define kLMIpadLanscapeKeyboardOriginY 416
 #define kLMIpadPortraitKeyboardOriginY 760
@@ -110,7 +110,7 @@
     NSDictionary *userInfo = [notification userInfo];
     NSValue *keyboardBoundsValue = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
     self.currentKeyboardFrame = [self.view convertRect:[keyboardBoundsValue CGRectValue] fromView:nil];
-    if(self.currentKeyboardFrame.origin.y == kLMIphoneLandscapeKeyboardOriginY || self.currentKeyboardFrame.origin.y == kLMIphonePortraitKeyboardOriginY || self.currentKeyboardFrame.origin.y == kLMIpadLanscapeKeyboardOriginY || self.currentKeyboardFrame.origin.y == kLMIpadPortraitKeyboardOriginY) {
+    if(self.currentKeyboardFrame.origin.y < self.view.bounds.size.height) {
         [self returnToDefaultScrollContentSize:NO withUserInfoDictionary:notification.userInfo];
     } else {
         [self returnToDefaultScrollContentSize:YES withUserInfoDictionary:notification.userInfo];
@@ -159,7 +159,7 @@
 - (void)scrollToCurrentTextField {
     if(self.currentEditingTextField && self.currentKeyboardFrame.origin.y > 0) {
         float posY = floorf(self.currentEditingTextField.frame.origin.y+self.currentEditingTextField.frame.size.height+10);
-        if(posY > self.currentKeyboardFrame.origin.y) {
+        if(posY > self.currentKeyboardFrame.origin.y-self.currentKeyboardFrame.size.height) {
             [UIView animateWithDuration:0.2 animations:^{
                 [self.contentScrollView setContentOffset:CGPointMake(self.contentScrollView.contentOffset.x, posY - self.currentKeyboardFrame.origin.y)];
             } completion:^(BOOL finished) {

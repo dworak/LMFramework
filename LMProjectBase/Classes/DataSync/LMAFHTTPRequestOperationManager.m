@@ -107,13 +107,14 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
     return operation;
 }
 
-- (AFHTTPRequestOperation*)GETHTTPRequestOperationForAllRecordsOfClass: (Class)className
-                                                      updatedAfterDate: (NSDate *)updatedDate
-                                                           succedBlock: (void(^)(AFHTTPRequestOperation *operation, id responseObject)) theSucceedBlock
-                                                          failureBlock: (void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForCountOfAllRecordsOfClass: (Class) className
+                                                             updatedAfterDate: (NSDate *)updatedDate
+                                                                 succuedBlock: (succedBlock) theSuccedBlock
+                                                                 failureBlock: (failureBlock) theFailureBlock
 {
-    AFHTTPRequestOperation *operation = nil;
-    NSMutableDictionary *paramters = nil;
+    NSMutableDictionary *paramters  = [NSMutableDictionary dictionary];
+    
+
     if (updatedDate) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.'999Z'"];
@@ -123,8 +124,50 @@ static NSString * const kAPIHeaders = @"kAPIHeaders";
                                 stringWithFormat:@"{\"updatedAt\":{\"$gte\":{\"__type\":\"Date\",\"iso\":\"%@\"}}}",
                                 [dateFormatter stringFromDate:updatedDate]];
         
-        paramters = [NSMutableDictionary dictionary];
+        
         [paramters setObject:dateString forKey:@"where"];
+    }
+    
+    AFHTTPRequestOperation *operation = nil;
+    
+    [paramters setValue:@"1" forKey:@"count"];
+    [paramters setValue:@"0" forKey:@"limit"];
+    
+    operation = [self GETHTTPRequestOperationForClass:className parameters:paramters succedBlock:theSuccedBlock failureBlock:theSuccedBlock];
+    return operation;
+}
+
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForAllRecordsOfClass: (Class)className
+                                                      updatedAfterDate: (NSDate *)updatedDate
+                                                          withRowLimit: (NSUInteger) rowLimit
+                                                          skipElements: (NSUInteger) skipElements
+                                                           succedBlock: (void(^)(AFHTTPRequestOperation *operation, id responseObject)) theSucceedBlock
+                                                          failureBlock: (void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock
+{
+    AFHTTPRequestOperation *operation = nil;
+    NSMutableDictionary *paramters  = [NSMutableDictionary dictionary];
+    
+    if (updatedDate) {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.'999Z'"];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"GMT"]];
+        
+        NSString *dateString = [NSString
+                                stringWithFormat:@"{\"updatedAt\":{\"$gte\":{\"__type\":\"Date\",\"iso\":\"%@\"}}}",
+                                [dateFormatter stringFromDate:updatedDate]];
+        
+        
+        [paramters setObject:dateString forKey:@"where"];
+    }
+    
+    if(rowLimit!=-1)
+    {
+        [paramters setValue:[NSString stringWithFormat:@"%lu", (unsigned long)rowLimit] forKey:@"limit"];
+    }
+    
+    if(skipElements!=-1)
+    {
+        [paramters setValue:[NSString stringWithFormat:@"%lu", (unsigned long)skipElements] forKey:@"skip"];
     }
     
     operation = [self GETHTTPRequestOperationForClass:className parameters:paramters succedBlock:theSucceedBlock failureBlock:theFailureBlock];

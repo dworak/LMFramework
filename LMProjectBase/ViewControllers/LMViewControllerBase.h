@@ -13,6 +13,6 @@
 - (void)addContentSubview:(UIView *)v;
 - (void)setBouncesPropertyForRootView: (BOOL) bounces;
 - (void)shakeAnimation:(NSArray*) views;
-@property (strong, nonatomic, readonly) UIScrollView *contentScrollView;
 @property (weak, nonatomic) UITextField *currentEditingTextField;
+@property (strong, nonatomic, readonly) UIScrollView *contentScrollView;
 @end

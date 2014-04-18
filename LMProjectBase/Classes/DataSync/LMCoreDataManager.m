@@ -198,12 +198,8 @@ return sharedInstance;
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSDictionary *settingsDictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
-    NSAssert(settingsDictionary, @"There is no settings.plist file in your mainBundle");
     
-    NSString *projectName = [settingsDictionary valueForKey:@"projectName"];
-    
-    NSAssert(projectName, @"There is no value for projectName in your settings.plist");
+    NSString *projectName =  [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
     
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:projectName withExtension:@"momd"];
     
@@ -231,11 +227,42 @@ return sharedInstance;
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.sqlite",projectName]];
     
     NSError *error = nil;
+    
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    
+    NSDictionary *options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
+                              NSInferMappingModelAutomaticallyOption:@YES,
+                              NSSQLitePragmasOption: @{@"journal_mode": @"WAL"}
+                              };
+    
+    // Check if we need a migration
+    NSDictionary *sourceMetadata = [NSPersistentStoreCoordinator metadataForPersistentStoreOfType:NSSQLiteStoreType URL:storeURL error:&error];
+    NSManagedObjectModel *destinationModel = [_persistentStoreCoordinator managedObjectModel];
+    BOOL isModelCompatible = (sourceMetadata == nil) || [destinationModel isConfiguration:nil compatibleWithStoreMetadata:sourceMetadata];
+    if (! isModelCompatible) {
+        // We need a migration, so we set the journal_mode to DELETE
+        options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
+                    NSInferMappingModelAutomaticallyOption:@YES,
+                    NSSQLitePragmasOption: @{@"journal_mode": @"DELETE"}
+                    };
+    }
+    
+    NSPersistentStore *persistentStore = [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
+    if (! persistentStore) {
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+    
+    // Reinstate the WAL journal_mode
+    if (! isModelCompatible) {
+        [_persistentStoreCoordinator removePersistentStore:persistentStore error:NULL];
+        options = @{NSMigratePersistentStoresAutomaticallyOption:@YES,
+                    NSInferMappingModelAutomaticallyOption:@YES,
+                    NSSQLitePragmasOption: @{@"journal_mode": @"WAL"}
+                    };
+        [_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error];
+    }
+    
     
     return _persistentStoreCoordinator;
 }

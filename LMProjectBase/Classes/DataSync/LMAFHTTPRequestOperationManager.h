@@ -23,6 +23,11 @@ typedef void (^completionBlock)(NSURLResponse * response, NSData *data, NSError 
 #pragma mark -
 #pragma mark HTTP
 
+- (AFHTTPRequestOperation*)GETHTTPRequestOperationForCountOfAllRecordsOfClass: (Class) className
+                                                             updatedAfterDate: (NSDate *)updatedDate
+                                                                 succuedBlock: (succedBlock) theSuccedBlock
+                                                                 failureBlock: (failureBlock) theFailureBlock;
+
 - (AFHTTPRequestOperation *)GETHTTPRequestOperationForClass: (Class)className
                                                  parameters: (NSDictionary *)parameters
                                                 succedBlock: (succedBlock) theSucceedBlock
@@ -30,6 +35,8 @@ typedef void (^completionBlock)(NSURLResponse * response, NSData *data, NSError 
 
 - (AFHTTPRequestOperation*)GETHTTPRequestOperationForAllRecordsOfClass: (Class)className
                                                       updatedAfterDate: (NSDate *)updatedDate
+                                                          withRowLimit: (NSUInteger) rowLimit
+                                                          skipElements: (NSUInteger) skipElements
                                                            succedBlock: (void(^)(AFHTTPRequestOperation *operation, id responseObject)) theSucceedBlock
                                                           failureBlock: (void(^)(AFHTTPRequestOperation *operation, NSError *error)) theFailureBlock;
 

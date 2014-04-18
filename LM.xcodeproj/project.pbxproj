@@ -297,6 +297,7 @@
 		FB90589F18BCA7C1002D791A /* SKPSMTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPSMTPMessage.m; sourceTree = "<group>"; };
 		FB9058AB18BCA882002D791A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FB9058B518BCABC0002D791A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FB9EF7D918FFFBAB00261153 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Macros.h; path = GlobalHeaders/Macros.h; sourceTree = "<group>"; };
 		FBD6B2BA18BFAE2200E8C664 /* UIView+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+KeyboardAnimation.h"; path = "Categories/UIView+KeyboardAnimation.h"; sourceTree = "<group>"; };
 		FBD6B2BB18BFAE2200E8C664 /* UIView+KeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+KeyboardAnimation.m"; path = "Categories/UIView+KeyboardAnimation.m"; sourceTree = "<group>"; };
 		FBDEB45C18D98C91000373C7 /* NSDictionary+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+URLEncoding.h"; path = "Categories/NSDictionary+URLEncoding.h"; sourceTree = "<group>"; };
@@ -512,6 +513,7 @@
 		FB90582018BC9A4A002D791A /* LMProjectBase */ = {
 			isa = PBXGroup;
 			children = (
+				FB9EF7D818FFFB7F00261153 /* Headers */,
 				FB90584718BC9CA4002D791A /* Classes */,
 				FB90584618BC9C9D002D791A /* 3rdParty */,
 				FB90584518BC9C94002D791A /* Resources */,
@@ -619,6 +621,14 @@
 				FB90589F18BCA7C1002D791A /* SKPSMTPMessage.m */,
 			);
 			path = SMTP;
+			sourceTree = "<group>";
+		};
+		FB9EF7D818FFFB7F00261153 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				FB9EF7D918FFFBAB00261153 /* Macros.h */,
+			);
+			name = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -969,6 +979,7 @@
 					"\"${PODS_ROOT}/Headers/objective-zip\"",
 					"\"${SRC_ROOT}/LMProjectBase/Headers/\"/**",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = LM;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
